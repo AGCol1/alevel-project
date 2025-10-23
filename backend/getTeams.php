@@ -1,8 +1,8 @@
 <?php
 $host = "localhost"; 
-$user = "alfie";
-$pass = "123Password";
-$dbname = "simulator_database";
+$user = "root";
+$pass = "";
+$dbname = "premier_league_db";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 
