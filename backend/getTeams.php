@@ -1,21 +1,21 @@
 <?php
-$host = "localhost"; 
-$user = "root";
-$pass = "";
-$dbname = "premier_league_db";
+$host = "192.168.1.185"; 
+$user = "alfie_desktop";
+$pass = "password123";
+$dbname = "simulatordb";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 
 if ($conn->connect_error) {
-    http_reponse_code(500);
+    http_response_code(500);
     die(json_encode(["error" => "Connection failed: " . $conn->connect_error]));
 }
 
-$sql  = "SELECT team_id, team_name, gls, ast FROM Teams";
+$sql  = "SELECT teamID, teamName, teamGls, teamAst FROM premier_league";
 $result = $conn->query($sql);
 
 $teams = [];
-if ($result->num_rows > 0) {
+if ($result && $result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $teams[] = $row;
     }
