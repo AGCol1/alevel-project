@@ -2,35 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Football Simulator Test</title>
+  <title>Football Simulator</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
     pre { background: #f0f0f0; padding: 10px; border-radius: 5px; }
   </style>
 </head>
 <body>
-  <h1>Football Simulator Test</h1>
+  <h1>Football Simulator </h1>
   <pre id="output">Loading teams...</pre>
 
-  <script>
-    async function loadTeams() {
-      try {
-        // Fetch from your PHP backend
-        const res = await fetch('http://localhost:8000/backend/getTeams.php');
-        if (!res.ok) throw new Error('Network response was not ok');
-
-        const data = await res.json();
-        console.log(data);
-
-        // Display JSON nicely
-        document.getElementById('output').textContent = JSON.stringify(data, null, 2);
-      } catch (err) {
-        console.error("Fetch error:", err);
-        document.getElementById('output').textContent = "Error loading teams: " + err;
-      }
-    }
-
-    loadTeams();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
