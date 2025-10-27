@@ -2,15 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/premier_league_logo.png" type="image/png">
   <title>Football Simulator</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    pre { background: #f0f0f0; padding: 10px; border-radius: 5px; }
-  </style>
 </head>
 <body>
-  <h1>Football Simulator </h1>
+  <h1>
+    <img src="images/premier_league_logo.png" alt="Premier League Logo" style="vertical-align: middle; max-height: 50px;">
+    Football Simulator
+  </h1>
   <pre id="output">Loading teams...</pre>
+  <button id="run-simulation">Run Simulation</button>
+<div id="league-table" class="hidden">
+    <table>
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Team</th>
+                <th>Points</th>
+                <th>Goals For</th>
+                <th>Goals Against</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- League table rows will be populated here by JavaScript -->
+        </tbody>
+    </table>
+</div>
 
   <script src="script.js"></script>
 </body>
