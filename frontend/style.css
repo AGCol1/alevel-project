@@ -1,68 +1,134 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body background and font */
 body {
-    background: linear-gradient(90deg, #f0f0f0, #e0e0e0);
-    transition: background-color 2s;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    height: 100vh; /* Full viewport height */
-    margin: 0; /* Remove default margin */
+  background: linear-gradient(135deg, rgba(15, 32, 39, 0.9), rgba(32, 58, 67, 0.9), rgba(44, 83, 100, 0.9)),
+              url('./images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
 }
 
+/* Header style */
 h1 {
-    margin-bottom: 20px; /* Space below the title */
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Output box */
+#output {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  padding: 15px;
+  width: 100%;
+  max-width: 600px;
+  height: 150px;
+  overflow-y: auto;
+  font-family: monospace;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Button style */
+button#run-simulation {
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  color: #000;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 30px;
+}
+
+button#run-simulation:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.6);
+}
+
+/* League table */
 #league-table {
-    margin-top: 20px;
-    display: none; /* Initially hidden */
+  width: 100%;
+  max-width: 800px;
+  overflow-x: auto;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
 }
 
 #league-table table {
-    width: 100%;
-    border-collapse: collapse; /* Collapse borders */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden; /* Prevent overflow */
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
 }
 
 #league-table th, #league-table td {
-    padding: 12px; /* Increased padding for better spacing */
-    text-align: left;
-    border: 1px solid #ccc; /* Add border to cells */
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #league-table th {
-    background-color: #4CAF50; /* Header background color */
-    color: white; /* Header text color */
+  background-color: #1e3a8a; /* Deep blue */
+  color: #ffffff;             /* White text */
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px 8px 0 0;
+  padding: 12px 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
 }
 
-#league-table tr:hover {
-    background-color: #f1f1f1;
-    transform: scale(1.02);
-    transition: transform 0.2s;
+
+#league-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
 }
 
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #4CAF50; /* Button background color */
-    color: white; /* Button text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s; /* Smooth transition */
+#league-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.02);
+  transition: all 0.2s;
 }
 
-button:hover {
-    background-color: #45a049; /* Darker shade on hover */
-}
-
+/* Hidden class */
 .hidden {
-    display: none;
+  display: none;
 }
 
-.show {
-    display: block; /* Ensure this is set to block or table */
+/* Responsive */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  button#run-simulation {
+    width: 100%;
+  }
+
+  #output {
+    height: 120px;
+  }
 }
