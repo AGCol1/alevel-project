@@ -23,7 +23,7 @@ if ($conn->connect_error) {    // This checks if the connection to the database 
     die(json_encode(["error" => "Connection failed: " . $conn->connect_error]));
 } 
 
-$sql  = "SELECT teamID, teamName, teamGls, teamAst FROM premier_league"; 
+$sql  = "SELECT teamID, teamName, teamGls, teamAst, teamDef, teamErr FROM premier_league"; 
 $result = $conn->query($sql); /* This is the SQL query made to the Database and selects the 
                                teamID, teamName, teamGls and teamAst columns from the 
                                premier_league table */
