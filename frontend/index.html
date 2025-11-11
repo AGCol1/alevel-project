@@ -4,8 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football Simulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 2rem;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        a {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 150px;
+        }
+        a:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+        .about-btn {
+            background-color: #6c757d;
+        }
+        .about-btn:hover {
+            background-color: #5a6268;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Football Simulator</h1>
+        <div class="button-group">
+            <a href="single-sim.html">Single Player</a>
+            <a href="multi-sim.html">Multiplayer</a>
+            <a href="about.html" class="about-btn">About</a>
+        </div>
+    </div>
 </body>
 </html>
