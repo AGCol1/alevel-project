@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *"); // Allows CORS from any origin
 header("Content-Type: application/json; charset=UTF-8"); // Allows CORS from any origin
 
 // --- Database connection ---
-$host = "192.168.1.185";  /* This is the IP address of the Raspberry Pi also known as the host of 
+$host = "192.168.5.117";  /* This is the IP address of the Raspberry Pi also known as the host of 
                              where the database is located on the network */
 
 $user = "alfie_desktop"; /* This is the name of the person who wishes to acccess the database 
