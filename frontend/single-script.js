@@ -65,8 +65,8 @@ function shuffleArray(array) {
 }
 
 function simulateMatch(home, away) {
-    const homeFactor = 0.15 + Math.random() * 0.1;
-    const awayFactor = 0.15 + Math.random() * 0.1;
+    const homeFactor = 0.1 + Math.random() * 0.1;
+    const awayFactor = 0.09 + Math.random() * 0.1;
 
     const strengthDifference = home.teamStrength - away.teamStrength;
     const strengthBonus = Math.max(0, strengthDifference) * 0.1;
