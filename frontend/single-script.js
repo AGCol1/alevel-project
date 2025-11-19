@@ -1,6 +1,6 @@
 function calculateTeamStrength(team, maxGls, maxAst, maxDef) {
-    const weightedAttack = ((team.teamGls / maxGls) * 50) + ((team.teamAst / maxAst) * 50);
-    const defensiveFactor = (team.teamDef / maxDef);
+    const weightedAttack = ((team.teamGls / maxGls) * 45) + ((team.teamAst / maxAst) * 50);
+    const defensiveFactor = (team.teamDef / maxDef) * 2;
     const randomFactor = (Math.random() * 5) * (1 - 0.3 * defensiveFactor);
     const goalEfficiency = team.teamGls / (team.teamAst + 1);
     const efficiencyBonus = goalEfficiency * 5;
