@@ -6,68 +6,103 @@
     <link rel="stylesheet" href="style.css">
     <title>About</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            max-width: 800px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f4f4;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 50px;
         }
         h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
+            color: #667eea;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.5em;
         }
         h2 {
-            color: #34495e;
-            margin-top: 30px;
-        }
-        ul {
-            padding: 20px 40px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        li {
-            margin-bottom: 10px;
+            color: #764ba2;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
         }
         p {
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        li {
+            color: #555;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.05em;
+        }
+        li:before {
+            content: "⚽";
+            position: absolute;
+            left: 0;
+            color: #667eea;
         }
         button {
-            background-color: #3498db;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 30px;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 30px;
         }
         button:hover {
-            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <h1>About Football Simulator</h1>
-    <p>This Football Simulator allows users to simulate Premier League seasons either through single simulations or multiple
-    simulations to analyze team performances over time.</p>
-    <h2>Features</h2>
-    <ul>
-        <li>Single Simulation: Run a single season simulation and view the final league table.</li>
-        <li>Multi Simulation: Run multiple season simulations to gather statistical data on team performances.</li>
-    </ul>
-    <h2>Technologies Used</h2>
-    <ul>
-        <li>Frontend: HTML, CSS, JavaScript</li>
-        <li>Backend: PHP, MySQL</li>
-    </ul>
-    <h2>Developer</h2>
-    <p>Developed by Alfie as part of an A-Level project.</p>
+    <div class="container">
+        <h1>⚽ Football Simulator</h1>
+        <p>This Football Simulator allows users to simulate Premier League seasons either through single simulations or multiple simulations to analyze team performances over time.</p>
+        
+        <h2>Features</h2>
+        <ul>
+            <li>Single Simulation: Run a single season simulation and view the final league table.</li>
+            <li>Multi Simulation: Run multiple season simulations to gather statistical data on team performances.</li>
+        </ul>
+        
+        <h2>Technologies Used</h2>
+        <ul>
+            <li>Frontend: HTML, CSS, JavaScript</li>
+            <li>Backend: PHP, MySQL</li>
+        </ul>
+        
+        <h2>Developer</h2>
+        <p>Developed by Alfie as part of an A-Level project.</p>
 
-    <a href="index.html"><button>Back to Home</button></a>
+        <a href="index.html"><button>← Back to Home</button></a>
+    </div>
 </body>
 </html>

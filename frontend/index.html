@@ -5,57 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football Simulator</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
         }
+        
         .container {
             text-align: center;
+            animation: fadeIn 0.8s ease-in;
         }
+        
         h1 {
-            margin-bottom: 2rem;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideDown 0.6s ease-out;
         }
+        
         .button-group {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             align-items: center;
         }
+        
         a {
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            background-color: #007bff;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-            width: 150px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            width: 200px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: slideUp 0.6s ease-out backwards;
         }
+        
+        a:nth-child(1) { animation-delay: 0.1s; }
+        a:nth-child(2) { animation-delay: 0.2s; }
+        a:nth-child(3) { animation-delay: 0.3s; }
+        
         a:hover {
-            background-color: #0056b3;
-            transform: scale(1.1);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
-        .about-btn {
-            background-color: #6c757d;
+        
+        a:active {
+            transform: translateY(-1px);
         }
-        .about-btn:hover {
-            background-color: #5a6268;
+        
+        a:nth-child(1) {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        a:nth-child(2) {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+        
+        a:nth-child(3) {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Football Simulator</h1>
+        <h1>⚽ Football Simulator</h1>
         <div class="button-group">
             <a href="single-sim.html">Single Simulations</a>
             <a href="multi-sim.html">Multi Simulator</a>
-            <a href="about.html" class="about-btn">About</a>
+            <a href="about.html">About</a>
         </div>
     </div>
 </body>
