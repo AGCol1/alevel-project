@@ -10,7 +10,7 @@ $user = "alfie_desktop"; /* This is the name of the person who wishes to acccess
                          which in my case is my desktop which was named as "alfie_desktop" 
                          when granting permissions on the Raspberry Pi and documented on my project  */
 
-$pass = "your_password_here"; /* This is the password associated with the user "alfie_desktop" 
+$pass = "your_password"; /* This is the password associated with the user "alfie_desktop" 
                          which was also set when granting permissions on the Raspberry Pi */
 
 $dbname = "simulatordb"; /* This is the name of the database which stores the premier_league 

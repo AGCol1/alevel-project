@@ -140,6 +140,12 @@ function resetTeams(teams) {
 }
 
 async function runMultiSimulation() {
+
+    const startTimestamp = new Date();
+    const startPerformance = performance.now();
+
+    console.log("Simulation started at:", startTimestamp.toLocaleTimeString());
+
     const numSimulations = parseInt(document.getElementById('num-simulations').value) || 100;
     const teams = await loadTeams();
     const totalTeams = teams.length;
@@ -156,6 +162,11 @@ async function runMultiSimulation() {
         };
     });
 
+    if (numSimulations <= 0 || numSimulations > 250000) {
+        alert('Number of simulations must be between 1 and 250,000');
+        return;
+    }
+
     for (let sim = 0; sim < numSimulations; sim++) {
         const teamsForSeason = resetTeams(teams);
         const fixtures = generateFixtures(teamsForSeason);
@@ -164,7 +175,7 @@ async function runMultiSimulation() {
         leagueTable.forEach((team, position) => {
             const stats = statsMap[team.teamID];
             if (position === 0) stats.leagueWins++;
-            if (position >= totalTeams - 3) stats.relegations++;
+            if (position >= teams.length - 3) stats.relegations++;
             if (position < 5) stats.top5Finishes++;
             stats.totalPoints += team.points;
             stats.finishPositions.push(position + 1);
@@ -172,6 +183,15 @@ async function runMultiSimulation() {
     }
 
     displayMultiSimResults(statsMap, numSimulations, totalTeams);
+
+    const endTimestamp = new Date();
+    const endPerformance = performance.now();
+    const durationMs = endPerformance - startPerformance;
+    const durationSeconds = (durationMs / 1000).toFixed(3);
+
+    console.log("Simulation finished at:", endTimestamp.toLocaleTimeString());
+    console.log("Total duration:", durationMs.toFixed(2), "ms");
+    console.log("Total duration:", durationSeconds, "seconds");
 }
 
 function displayMultiSimResults(statsMap, numSimulations, totalTeams) {
@@ -181,24 +201,32 @@ function displayMultiSimResults(statsMap, numSimulations, totalTeams) {
     const tbody = resultsDiv.querySelector('tbody');
     tbody.innerHTML = '';
 
-    Object.values(statsMap).forEach(stats => {
-        const leagueWinChance = ((stats.leagueWins / numSimulations) * 100).toFixed(2);
-        const relegationChance = ((stats.relegations / numSimulations) * 100).toFixed(2);
-        const top5Chance = ((stats.top5Finishes / numSimulations) * 100).toFixed(2);
-        const avgPoints = (stats.totalPoints / numSimulations).toFixed(2);
-        const avgFinish = (stats.finishPositions.reduce((a, b) => a + b) / numSimulations).toFixed(2);
+    const sortedStats = Object.values(statsMap)
+        .map(stats => {
+            return {
+                teamName: stats.teamName,
+                leagueWinChance: (stats.leagueWins / numSimulations) * 100,
+                relegationChance: (stats.relegations / numSimulations) * 100,
+                top5Chance: (stats.top5Finishes / numSimulations) * 100,
+                avgPoints: stats.totalPoints / numSimulations,
+                avgFinish: stats.finishPositions.reduce((a, b) => a + b, 0) / numSimulations
+            };
+        })
+        .sort((a, b) => b.leagueWinChance - a.leagueWinChance);
 
+    sortedStats.forEach(stats => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${stats.teamName}</td>
-            <td>${leagueWinChance}%</td>
-            <td>${relegationChance}%</td>
-            <td>${top5Chance}%</td>
-            <td>${avgPoints}</td>
-            <td>${avgFinish}</td>
+            <td>${stats.leagueWinChance.toFixed(2)}%</td>
+            <td>${stats.relegationChance.toFixed(2)}%</td>
+            <td>${stats.top5Chance.toFixed(2)}%</td>
+            <td>${stats.avgPoints.toFixed(2)}</td>
+            <td>${stats.avgFinish.toFixed(2)}</td>
         `;
         tbody.appendChild(tr);
     });
 }
+
 
 document.getElementById('run-simulation').addEventListener('click', runMultiSimulation);

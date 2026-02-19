@@ -4,36 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Multi Simulator</title>
+    <title>Football League Multi Simulation</title>
+    <link rel="stylesheet" href="multi-style.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Football League Multi Simulation</h1>
-        
-        <div class="controls">
-            <label for="num-simulations">Number of Simulations:</label>
-            <input type="number" id="num-simulations" value="100" min="1" max="10000">
-            <button id="run-simulation">Run Simulation</button>
-        </div>
+    <div class="page">
+        <header class="header">
+            <h1>Football League Multi Simulation</h1>
+            <p>Run multiple season simulations and analyse long term outcomes.</p>
+        </header>
 
-        <div id="multi-sim-results" class="hidden">
-            <h2>Results</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Team Name</th>
-                        <th>League Win %</th>
-                        <th>Relegation %</th>
-                        <th>Top 5 Finish %</th>
-                        <th>Avg Points</th>
-                        <th>Avg Finish Position</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+        <section class="card controls-card">
+            <div class="controls">
+                <div class="input-group">
+                    <label for="num-simulations">Number of Simulations</label>
+                    <input type="number" id="num-simulations" value="100" min="1" max="10000">
+                </div>
+                <button id="run-simulation" class="primary-btn">Run Simulation</button>
+            </div>
+        </section>
+
+        <section id="multi-sim-results" class="card hidden">
+            <div class="table-header">
+                <h2>Simulation Results</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>League Win %</th>
+                            <th>Relegation %</th>
+                            <th>Top 5 %</th>
+                            <th>Avg Points</th>
+                            <th>Avg Finish</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
     </div>
 
     <script src="multi-script.js"></script>
